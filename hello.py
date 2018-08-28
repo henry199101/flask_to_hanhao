@@ -4,12 +4,14 @@ from flask_moment import Moment
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
+from flask_script import Manager
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hard to guess string'
 
 bootstrap = Bootstrap(app)
 moment = Moment(app)
+manager = Manager(app)
 
 
 class NameForm(FlaskForm):
@@ -38,4 +40,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    manager.run()
