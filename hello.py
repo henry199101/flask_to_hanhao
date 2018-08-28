@@ -1,3 +1,4 @@
+import json
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
@@ -36,7 +37,7 @@ def index():
     if form.validate_on_submit():
         name = form.name.data
         form.name.data = ''
-    return render_template('index.html', form=form, name=name)
+    return render_template('index.html', form=form, name=json.dumps(name))
 
 
 if __name__ == '__main__':
