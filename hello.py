@@ -38,6 +38,8 @@ def index():
         name = form.name.data
         form.name.data = ''
     return render_template('index.html', form=form, name=json.dumps(name))
+    #name=json.dumps(name, indent=2)
+    #return name
 
 
 if __name__ == '__main__':
